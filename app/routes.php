@@ -7,3 +7,4 @@
 */
 $router->get('', 'PagesController@index');
 $router->get('about', 'AboutController@index');
+$router->post('search', 'SearchController@index');
