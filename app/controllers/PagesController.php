@@ -6,7 +6,9 @@ use App\Core\App;
 class PagesController {
     public function index() 
     {
-        return view('index');
+       
+        $tasks = App::get('database')->selectAll('todos');
+        return view('index', compact('tasks'));
     }
 }
 
