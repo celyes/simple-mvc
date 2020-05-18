@@ -6,8 +6,8 @@ class Connection {
         try {
             return new PDO(
                 $config['connection'].';dbname='.$config['name'], 
-                $config['user'], 
-                $config['pass']
+                $config['username'], 
+                $config['password']
             );
 
         }
