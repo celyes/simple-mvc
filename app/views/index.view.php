@@ -4,15 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="my-4">Home page</h1>
+            <h1>Welcome to home page</h1>
 
-            <code>
-                <?php foreach($tasks as $task): ?>
-                <p>Name: <?= $task->name; ?></p>
-                <p>Description: <?= $task->description; ?></p>
-                <hr>
-                <?php endforeach; ?>
-            </code>
         </div>
     </div>
 </div>

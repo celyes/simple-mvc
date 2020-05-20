@@ -1,11 +1,12 @@
-<?php 
+<?php
 namespace App\Controllers;
 
 use App\Core\App;
 
 class SearchController {
-    public function index() 
+    public function index()
     {
         echo "Search triggered";
+        // do whatever operation here
     }
 }
