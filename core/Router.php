@@ -39,7 +39,7 @@ class Router {
 
     protected function callAction($controller, $method)
     {
-        $controller = "App\\Controllers\\{$controller}";
+        $controller = App::get('controllers-path')."{$controller}";
         $controller = new $controller;
 
         if (! method_exists($controller, $method)) {

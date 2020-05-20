@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Welcome to home page</h1>
-
+            <h1 class="my-4">Welcome to home page</h1>
+            <p>Add anything here... do whatever you can</p>
         </div>
     </div>
 </div>
