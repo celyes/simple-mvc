@@ -1,18 +1,18 @@
 <?php
 namespace App\Controllers;
 
-use App\Core\App;
-use App\Core\Request;
+use App\Core\{ App, Request };
+use App\Models\Task;
 
 class TasksController {
     public function index()
     {
-        return view('index', compact('tasks'));
+        return view('index');
     }
 
     public function show()
     {
-        $tasks = App::get('database')->selectAll('todos');
+        $tasks = Task::all();
         return view('tasks', compact('tasks'));
     }
     public function newTask()
@@ -24,7 +24,7 @@ class TasksController {
       // needs validation
 
       $parameters = App::get('request');
-      $request = App::get('database')->insert('todos', $parameters);
+      Task::insert('todos', $parameters);
       return redirect('/tasks');
 
     }
