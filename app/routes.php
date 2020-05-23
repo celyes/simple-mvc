@@ -1,10 +1,14 @@
 <?php
 
-/*$router->define([
+/*Router::define([
     '' => 'controllers/index.php',
     'about' => 'controllers/about.php'
 ]);
 */
+
+
+use App\Core\Router;
+
 $router->get('', 'TasksController@index');
 $router->get('about', 'AboutController@index');
 $router->get('tasks', 'TasksController@show');

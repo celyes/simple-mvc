@@ -5,7 +5,7 @@
 */
 function view($name, $data = []) {
     extract($data);
-    require "app/views/{$name}.view.php";
+    require "resources/views/{$name}.view.php";
 }
 
 function redirect($path) {
