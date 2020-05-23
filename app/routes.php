@@ -6,9 +6,6 @@
 ]);
 */
 
-
-use App\Core\Router;
-
 $router->get('', 'TasksController@index');
 $router->get('about', 'AboutController@index');
 $router->get('tasks', 'TasksController@show');
