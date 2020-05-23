@@ -6,10 +6,25 @@ use Exception;
 
 class Router {
 
+    /**
+     * @var array
+     *
+     * $routes - holds all routes and correspondent controllers
+     * 
+    */
+
     protected $routes = [
         'GET' => [],
         'POST' => []
     ];
+
+    /**
+     * load - loads routes file
+     *
+     * @param   resource  $file  [$file the routes file]
+     *
+     * @return  resource         returns a file that contains all the routes
+     */
 
     public static function load($file)
     {
@@ -19,14 +34,41 @@ class Router {
 
         return $router;
     }
+
+    /**
+     * get - adds routes of type get to $this->routes GET array
+     *
+     * @param   string  $uri         url path 
+     * @param   string  $controller  the correspondent controller and method
+     *
+     * @return  void               
+     */
+
     public function get($uri, $controller){
        $this->routes['GET'][$uri] = $controller;
     }
+
+     /**
+     * post - adds routes of type get to $this->routes POST array
+     *
+     * @param   string  $uri         url path 
+     * @param   string  $controller  the correspondent controller and method
+     *
+     * @return  void               
+     */
 
     public function post($uri, $controller){
         $this->routes['POST'][$uri] = $controller;
     }
 
+    /**
+     * direct - 
+     *
+     * @param   string  $uri          the requested url path 
+     * @param   string  $requestType  the request type
+     *
+     * @return  method                calls a method
+     */
     public function direct($uri, $requestType)
     {
         if(array_key_exists($uri, $this->routes[$requestType])){
@@ -36,6 +78,16 @@ class Router {
         }
         throw new Exception('No route defined for this URI.');
     }
+
+
+    /**
+     * [callAction description]
+     *
+     * @param   string  $controller  the controller to go to
+     * @param   string  $method      the method to call
+     *
+     * @return  method               calls the correspondent controller method
+     */
 
     protected function callAction($controller, $method)
     {
