@@ -81,7 +81,7 @@ class Router {
 
 
     /**
-     * [callAction description]
+     * callAction - calls the needed method in the targeted controller
      *
      * @param   string  $controller  the controller to go to
      * @param   string  $method      the method to call
