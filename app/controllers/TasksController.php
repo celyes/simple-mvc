@@ -5,6 +5,7 @@ use App\Core\{ App, Request };
 use App\Models\Task;
 
 class TasksController {
+  
     public function index()
     {
         return view('index');

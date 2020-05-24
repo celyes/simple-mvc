@@ -6,6 +6,15 @@ use PDO;
 use PDOException;
 
 class Connection {
+    
+    /**
+     * [make description]
+     *
+     * @param   array  $config  database configuration array
+     *
+     * @return  object PDO      a PDO class instance
+     */
+
     public static function make($config){
         try {
             return new PDO(
