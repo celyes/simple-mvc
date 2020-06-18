@@ -2,6 +2,8 @@
 
 the most basic and simple PHP MVC framework
 
+notice: not ready for production yet.
+
 **requirements**
 
 - PHP 7.0
@@ -14,7 +16,7 @@ clone the repo:
 
 ```bash
 git clone git@github.com:celyes/mvc.git
-mv mvc/
+cd mvc/
 ```
 
 start the server:
