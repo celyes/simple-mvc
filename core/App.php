@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\Exceptions\KeyNotFoundException;
+
 final class App {
 
     /**
@@ -27,17 +29,17 @@ final class App {
     }
 
     /**
-     * [get description]
+     * get the key if exists.
      *
      * @param   string  $key  the key to get a correspondent registry value
      *
      * @return  mixed the registry value from $this->registry array
      */
-
+    
     public static function get($key)
     {
         if(! array_key_exists($key, static::$registry)){
-            throw new Exception('No {$key} found in the registry');
+            throw new KeyNotFoundException('No {$key} found in the registry');
         }
         return static::$registry[$key];
     }

@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use Exception;
+use App\Core\Exceptions\KeyNotFoundException;
 
 class Router {
 
@@ -76,7 +76,7 @@ class Router {
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         }
-        throw new Exception('No route defined for this URI.');
+        throw new KeyNotFoundException('No route defined for this URI.');
     }
 
 
