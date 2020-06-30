@@ -4,26 +4,25 @@ namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use App\Core\App;
-use App\Core\Exceptions\KeyNotFoundException;
 
 class AppTest extends TestCase {
 
     /**
      * @test
+     * add and test a new value
      */
     public function testGet() 
     {
-        $app = new App;
         App::bind("key", "value");
         $this->assertEquals(App::get("key"), "value");
     }
     /**
-     * @test
+     * @test 
+     * test a value that does not exist in the dependency injection container
      */
     public function testKeyNotFound() 
     {
-        $this->expectException(KeyNotFoundException::class);
-        $app = new App;
+        $this->expectException(\App\Core\Exceptions\KeyNotFoundException::class);
         App::get("keyThatDoesNotExists", "ValueThatDoesNotExist");
     }
 }
