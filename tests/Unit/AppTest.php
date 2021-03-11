@@ -1,17 +1,18 @@
-<?php 
+<?php
 
 namespace tests;
 
 use PHPUnit\Framework\TestCase;
-use App\Core\App;
+use Celyes\SimpleMVC\App;
 
-class AppTest extends TestCase {
+class AppTest extends TestCase
+{
 
     /**
      * @test
      * add and test a new value
      */
-    public function testGet() 
+    public function testGet()
     {
         App::bind("key", "value");
         $this->assertEquals(App::get("key"), "value");
@@ -20,9 +21,9 @@ class AppTest extends TestCase {
      * @test 
      * test a value that does not exist in the dependency injection container
      */
-    public function testKeyNotFound() 
+    public function testKeyNotFound()
     {
-        $this->expectException(\App\Core\Exceptions\KeyNotFoundException::class);
+        $this->expectException(\Celyes\SimpleMVC\Exceptions\KeyNotFoundException::class);
         App::get("keyThatDoesNotExists", "ValueThatDoesNotExist");
     }
 }

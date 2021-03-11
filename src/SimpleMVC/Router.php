@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Core;
+namespace Celyes\SimpleMVC;
 
-use App\Core\Exceptions\KeyNotFoundException;
+use Celyes\SimpleMVC\Exceptions\KeyNotFoundException;
+use Celyes\SimpleMVC\Exceptions\MethodNotFoundException;
 
-class Router {
+class Router
+{
 
     /**
      * @var array
      *
      * $routes - holds all routes and correspondent controllers
      * 
-    */
+     */
 
     protected $routes = [
         'GET' => [],
@@ -44,11 +46,12 @@ class Router {
      * @return  void               
      */
 
-    public function get($uri, $controller){
-       $this->routes['GET'][$uri] = $controller;
+    public function get($uri, $controller)
+    {
+        $this->routes['GET'][$uri] = $controller;
     }
 
-     /**
+    /**
      * post - adds routes of type get to $this->routes POST array
      *
      * @param   string  $uri         url path 
@@ -57,7 +60,8 @@ class Router {
      * @return  void               
      */
 
-    public function post($uri, $controller){
+    public function post($uri, $controller)
+    {
         $this->routes['POST'][$uri] = $controller;
     }
 
@@ -71,12 +75,13 @@ class Router {
      */
     public function direct($uri, $requestType)
     {
-        if(array_key_exists($uri, $this->routes[$requestType])){
+        if (array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         }
-        throw new KeyNotFoundException('No route defined for this URI.');
+        http_response_code(404);
+        return view('404');
     }
 
 
@@ -91,15 +96,13 @@ class Router {
 
     protected function callAction($controller, $method)
     {
-        $controller = App::get('controllers-path')."{$controller}";
+        $controller = App::get('controllers-path') . "{$controller}";
         $controller = new $controller;
 
-        if (! method_exists($controller, $method)) {
-            throw new Exception(
-                "{$controller} does not respond to the {$method} action."
-            );
+        if (!method_exists($controller, $method)) {
+            http_response_code(404);
+            return view('404');
         }
-
         return $controller->$method();
     }
 }

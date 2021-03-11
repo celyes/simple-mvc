@@ -12,11 +12,12 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "classmap": [
-            "./"
-        ],
+        "psr-4": {
+            "Celyes\\": "src/",
+            "App\\": "app/"
+        },
         "files": [
-            "core/helpers.php"
+            "app/helpers.php"
         ]
     },
     "require-dev": {

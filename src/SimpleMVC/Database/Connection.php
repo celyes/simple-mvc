@@ -1,12 +1,13 @@
-<?php 
+<?php
 
-namespace App\Core\Database; 
+namespace Celyes\SimpleMVC\Database;
 
 use PDO;
 use PDOException;
 
-class Connection {
-    
+class Connection
+{
+
     /**
      * [make description]
      *
@@ -15,16 +16,15 @@ class Connection {
      * @return  object PDO      a PDO class instance
      */
 
-    public static function make($config){
+    public static function make($config)
+    {
         try {
-            return new PDO (
-                $config['connection'].';dbname='.$config['name'], 
-                $config['username'], 
+            return new PDO(
+                $config['connection'] . ';dbname=' . $config['name'],
+                $config['username'],
                 $config['password']
             );
-
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             die($e->getMessage());
         }
     }

@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
-require 'core/bootstrap.php';
+require 'src/SimpleMVC/bootstrap.php';
 
-use App\Core\{Router, Request};
+use Celyes\SimpleMVC\{Router, Request};
 
 Router::load('app/routes.php')->direct(Request::uri(), Request::method());

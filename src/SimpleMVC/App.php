@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace Celyes\SimpleMVC;
 
-use App\Core\Exceptions\KeyNotFoundException;
+use Celyes\SimpleMVC\Exceptions\KeyNotFoundException;
 
 final class App {
 

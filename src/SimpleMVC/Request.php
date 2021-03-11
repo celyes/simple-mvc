@@ -1,16 +1,18 @@
-<?php 
+<?php
 
-namespace App\Core;
+namespace Celyes\SimpleMVC;
 
-class Request {
+class Request
+{
 
-   /**
+    /**
      * uri - extract path from url
      *
      * @return  string  the url path
      */
 
-    public static function uri(){
+    public static function uri()
+    {
         return trim(
             parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
             '/'
@@ -22,7 +24,8 @@ class Request {
      * 
      * @return  string  the request method
      */
-    public static function method(){
+    public static function method()
+    {
         return $_SERVER['REQUEST_METHOD'];
     }
 }
