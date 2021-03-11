@@ -1,8 +1,8 @@
 ## Simple MVC framework (WIP)
 
-the most basic and simple PHP MVC framework
+The most basic and simple PHP MVC framework
 
-notice: not ready for production yet.
+Notice: This project can be used in a production but this isn't what it was developed for, so use it on your own risk.
 
 **requirements**
 
