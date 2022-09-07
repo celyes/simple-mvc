@@ -1,8 +1,8 @@
+## * Abandoned project *
+
 ## Simple MVC framework (WIP)
 
 The most basic and simple PHP MVC framework
-
-Notice: This project can be used in a production but this isn't what it was developed for, so use it at your own risk.
 
 **requirements**
 
